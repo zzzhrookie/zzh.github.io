@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>zzzhrookie</title>
 <meta name="description" content="温故而知新" />
-<link rel="shortcut icon" href="http://zzzhrookie.coding.me//favicon.ico?v=1577094872779">
+<link rel="shortcut icon" href="http://zzzhrookie.coding.me//favicon.ico?v=1577106253018">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.remixicon.com/releases/v1.3.1/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -24,7 +24,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="remixicon-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="http://zzzhrookie.coding.me/">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="http://zzzhrookie.coding.me//images/avatar.png?v=1577094872779" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="http://zzzhrookie.coding.me//images/avatar.png?v=1577106253018" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">zzzhrookie</h1>
       </div>
@@ -110,47 +110,49 @@
         <div class="post-content yue">
           <h2 id="一-安装node">一. 安装node</h2>
 <h5 id="1-使用git将源码克隆到本地的~nvm目录下并检查最新版本">1. 使用git将源码克隆到本地的~/.nvm目录下，并检查最新版本</h5>
-<pre><code class="language-shell">    yum install git
-    git clone https://github.com/cnpm/nvm.git ~/.nvm &amp;&amp; cd ~/.nvm &amp;&amp; git checkout `git describe --abbrev=0 --tags`
+<pre><code class="language-shell">yum install git
+git clone https://github.com/cnpm/nvm.git ~/.nvm &amp;&amp; cd ~/.nvm &amp;&amp; git checkout `git describe --abbrev=0 --tags`
 </code></pre>
 <h5 id="2-激活nvm">2. 激活nvm</h5>
-<pre><code class="language-shell">    echo &quot;. ~/.nvm/nvm.sh&quot; &gt;&gt; /etc/profile
-    source /etc/profile
+<pre><code class="language-shell">echo &quot;. ~/.nvm/nvm.sh&quot; &gt;&gt; /etc/profile
+source /etc/profile
 </code></pre>
 <h5 id="3-列出nodejs的所有版本">3. 列出Node.js的所有版本</h5>
-<pre><code class="language-shell">    nvm list-remote
+<pre><code class="language-shell">nvm list-remote
 </code></pre>
 <h5 id="4-安装多个nodejs版本">4. 安装多个Node.js版本</h5>
-<pre><code class="language-shell">    nvm install v12.5.0
+<pre><code class="language-shell">nvm install v12.5.0
 </code></pre>
 <h5 id="5-运行nvm-ls查看已安装的nodejs版本">5. 运行nvm ls查看已安装的Node.js版本</h5>
-<pre><code class="language-shell">    nvm ls
-    // 切换node版本
-    nvm use v12.5.0
+<pre><code class="language-shell">nvm ls
+// 切换node版本
+nvm use v12.5.0
 </code></pre>
 <h5 id="6-设置默认nodejs版本">6. 设置默认nodejs版本</h5>
-<pre><code class="language-shell">    nvm alias default v12.5.0
+<pre><code class="language-shell">nvm alias default v12.5.0
 </code></pre>
 <h5 id="7-安装pm2">7. 安装pm2</h5>
-<pre><code class="language-shell">    npm install pm2 -g
+<pre><code class="language-shell">npm install pm2 -g
 </code></pre>
 <h5 id="8-实现node服务自启动入口文件为appjs">8. 实现node服务自启动(入口文件为app.js)</h5>
-<pre><code class="language-shell">    pm2 start app.js
+<pre><code class="language-shell">pm2 start app.js
 </code></pre>
 <h2 id="二-安装mongodb">二. 安装mongodb</h2>
 <h5 id="1-新建一个repo文件">1. 新建一个repo文件</h5>
+<blockquote>
 <p>repo文件是CentOS中yum源的配置文件，通常一个repo文件定义了一个或多个软件仓库细节内容，例如我们将从哪里下载或者升级的软件包，repo文件中的设置内容将被yum读取和应用</p>
-<pre><code class="language-shell">    vim /etc/yum.repos.d/mongodb-org-4.2.repo 
+</blockquote>
+<pre><code class="language-shell">vim /etc/yum.repos.d/mongodb-org-4.2.repo 
 </code></pre>
 <h5 id="2-写入repo文件内容">2. 写入repo文件内容</h5>
-<pre><code class="language-shell">    [mongodb]
-    name=MongoDB Repository
-    baseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/4.2/x86_64/
-    gpgcheck=0
-    enabled=1
+<pre><code class="language-shell">[mongodb]
+name=MongoDB Repository
+baseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/4.2/x86_64/
+gpgcheck=0
+enabled=1
 </code></pre>
 <h5 id="4-yum安装">4. yum安装</h5>
-<pre><code class="language-shell">    yum install -y mongodb
+<pre><code class="language-shell">yum install -y mongodb
 </code></pre>
 <hr>
 <p><strong>查看相关文章</strong><br>
