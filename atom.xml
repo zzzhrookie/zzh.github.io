@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zzzhrookie.github.io</id>
     <title>zzzhrookie</title>
-    <updated>2020-07-02T05:51:46.170Z</updated>
+    <updated>2020-07-02T06:04:05.310Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zzzhrookie.github.io"/>
     <link rel="self" href="https://zzzhrookie.github.io/atom.xml"/>
@@ -10,4 +10,18 @@
     <logo>https://zzzhrookie.github.io/images/avatar.png</logo>
     <icon>https://zzzhrookie.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, zzzhrookie</rights>
+    <entry>
+        <title type="html"><![CDATA[阿里云安装node环境]]></title>
+        <id>https://zzzhrookie.github.io/post/a-li-yun-an-zhuang-node-huan-jing</id>
+        <link href="https://zzzhrookie.github.io/post/a-li-yun-an-zhuang-node-huan-jing">
+        </link>
+        <updated>2020-07-02T05:56:53.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[阿里云安装node环境]]></title>
+        <id>https://zzzhrookie.github.io/post/aliyunnode</id>
+        <link href="https://zzzhrookie.github.io/post/aliyunnode">
+        </link>
+        <updated>2019-12-22T12:00:16.000Z</updated>
+    </entry>
 </feed>

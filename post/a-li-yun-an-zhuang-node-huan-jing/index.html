@@ -34,7 +34,30 @@
             文章目录
           </p>
           <div class="toc-container hidden lg:block">
-            
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%B8%80-%E5%AE%89%E8%A3%85node">一. 安装node</a><br>
+*<br>
+*<br>
+* <a href="#1-%E4%BD%BF%E7%94%A8git%E5%B0%86%E6%BA%90%E7%A0%81%E5%85%8B%E9%9A%86%E5%88%B0%E6%9C%AC%E5%9C%B0%E7%9A%84~nvm%E7%9B%AE%E5%BD%95%E4%B8%8B%E5%B9%B6%E6%A3%80%E6%9F%A5%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC">1. 使用git将源码克隆到本地的~/.nvm目录下，并检查最新版本</a><br>
+* <a href="#2-%E6%BF%80%E6%B4%BBnvm">2. 激活nvm</a><br>
+* <a href="#3-%E5%88%97%E5%87%BAnodejs%E7%9A%84%E6%89%80%E6%9C%89%E7%89%88%E6%9C%AC">3. 列出Node.js的所有版本</a><br>
+* <a href="#4-%E5%AE%89%E8%A3%85%E5%A4%9A%E4%B8%AAnodejs%E7%89%88%E6%9C%AC">4. 安装多个Node.js版本</a><br>
+* <a href="#5-%E8%BF%90%E8%A1%8Cnvm-ls%E6%9F%A5%E7%9C%8B%E5%B7%B2%E5%AE%89%E8%A3%85%E7%9A%84nodejs%E7%89%88%E6%9C%AC">5. 运行nvm ls查看已安装的Node.js版本</a><br>
+* <a href="#6-%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4nodejs%E7%89%88%E6%9C%AC">6. 设置默认nodejs版本</a><br>
+* <a href="#7-%E5%AE%89%E8%A3%85pm2">7. 安装pm2</a><br>
+* <a href="#8-%E5%AE%9E%E7%8E%B0node%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%90%AF%E5%8A%A8%E5%85%A5%E5%8F%A3%E6%96%87%E4%BB%B6%E4%B8%BAappjs">8. 实现node服务自启动(入口文件为app.js)</a></li>
+<li><a href="#%E4%BA%8C-%E5%AE%89%E8%A3%85mongodb">二. 安装mongodb</a><br>
+*<br>
+*<br>
+* <a href="#1-%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AArepo%E6%96%87%E4%BB%B6">1. 新建一个repo文件</a><br>
+* <a href="#2-%E5%86%99%E5%85%A5repo%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9">2. 写入repo文件内容</a><br>
+* <a href="#4-yum%E5%AE%89%E8%A3%85">4. yum安装</a></li>
+</ul>
+</li>
+</ul>
+
           </div>
         </div>
       
@@ -79,13 +102,63 @@
 <div class="mask" onclick="closeMenu()">
 </div>
       <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
-        <h1 class="text-3xl font-bold lg:mt-16">关于</h1>
+        <h1 class="text-3xl font-bold lg:mt-16">阿里云安装node环境</h1>
         <div class="text-sm text-gray-700 lg:my-8">
-          2019-01-25 / 1 min read
+          2020-07-02 / 2 min read
         </div>
         
         <div class="post-content yue">
-          <p>这是关于的页面，可以在这里向世界介绍你！</p>
+          <h2 id="一-安装node">一. 安装node</h2>
+<h5 id="1-使用git将源码克隆到本地的~nvm目录下并检查最新版本">1. 使用git将源码克隆到本地的~/.nvm目录下，并检查最新版本</h5>
+<pre><code class="language-shell">yum install git
+git clone https://github.com/cnpm/nvm.git ~/.nvm &amp;&amp; cd ~/.nvm &amp;&amp; git checkout `git describe --abbrev=0 --tags`
+</code></pre>
+<h5 id="2-激活nvm">2. 激活nvm</h5>
+<pre><code class="language-shell">echo &quot;. ~/.nvm/nvm.sh&quot; &gt;&gt; /etc/profile
+source /etc/profile
+</code></pre>
+<h5 id="3-列出nodejs的所有版本">3. 列出Node.js的所有版本</h5>
+<pre><code class="language-shell">nvm list-remote
+</code></pre>
+<h5 id="4-安装多个nodejs版本">4. 安装多个Node.js版本</h5>
+<pre><code class="language-shell">nvm install v12.5.0
+</code></pre>
+<h5 id="5-运行nvm-ls查看已安装的nodejs版本">5. 运行nvm ls查看已安装的Node.js版本</h5>
+<pre><code class="language-shell">nvm ls
+// 切换node版本
+nvm use v12.5.0
+</code></pre>
+<h5 id="6-设置默认nodejs版本">6. 设置默认nodejs版本</h5>
+<pre><code class="language-shell">nvm alias default v12.5.0
+</code></pre>
+<h5 id="7-安装pm2">7. 安装pm2</h5>
+<pre><code class="language-shell">npm install pm2 -g
+</code></pre>
+<h5 id="8-实现node服务自启动入口文件为appjs">8. 实现node服务自启动(入口文件为app.js)</h5>
+<pre><code class="language-shell">pm2 start app.js
+</code></pre>
+<h2 id="二-安装mongodb">二. 安装mongodb</h2>
+<h5 id="1-新建一个repo文件">1. 新建一个repo文件</h5>
+<blockquote>
+<p>repo文件是CentOS中yum源的配置文件，通常一个repo文件定义了一个或多个软件仓库细节内容，例如我们将从哪里下载或者升级的软件包，repo文件中的设置内容将被yum读取和应用</p>
+</blockquote>
+<pre><code class="language-shell">vim /etc/yum.repos.d/mongodb-org-4.2.repo 
+</code></pre>
+<h5 id="2-写入repo文件内容">2. 写入repo文件内容</h5>
+<pre><code class="language-shell">[mongodb]
+name=MongoDB Repository
+baseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/4.2/x86_64/
+gpgcheck=0
+enabled=1
+</code></pre>
+<h5 id="4-yum安装">4. yum安装</h5>
+<pre><code class="language-shell">yum install -y mongodb
+</code></pre>
+<hr>
+<p><strong>查看相关文章</strong><br>
+1.<a href="https://link.jianshu.com/?t=https%3A%2F%2Fhelp.aliyun.com%2Fdocument_detail%2F50775.html%3Fspm%3Da2c4g.11186623.6.763.4nGcUj">阿里云文档：部署Node.js项目（CentOS)</a><br>
+2.<a href="https://www.jianshu.com/p/a0f5d62a5737">阿里云 centos7 安装mongoDB</a><br>
+3.<a href="https://blog.csdn.net/weixin_33810302/article/details/92711395">repo文件</a></p>
 
         </div>
 
@@ -95,6 +168,15 @@
         <div class="flex justify-between py-8">
           
 
+          
+            <div class="next-post">
+              <a href="https://zzzhrookie.github.io/post/aliyunnode">
+                <h3 class="post-title">
+                  阿里云安装node环境
+                  <i class="remixicon-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
           
         </div>
 
